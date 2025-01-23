@@ -25,10 +25,9 @@ A high-performance, distributed caching solution designed with **Redis** and **S
 - **Redis** server installed and running
 
 ### Setup Instructions
-1. Clone the Repository:
+1. Clone the repository:
    ```bash
    git clone https://github.com/swanjiku/distributed-cache-system.git
-   cd distributed-cache-system
    ```
 2. Navigate to the project directory:
    ```bash
