@@ -17,9 +17,17 @@
   - [Configure Redis](#configure-redis)
   - [Run the Application](#run-the-application)
 - [API Endpoints](#api-endpoints)
+  - [Store Data in Cache](#store-data-in-cache)
+  - [Retrieve Cached Data by Key](#retrieve-cached-data-by-key)
+  - [Delete Data from Cache by Key](#delete-data-from-cache-by-key)
+  - [Error Response Example](#error-response-example)
 - [Usage](#usage)
+  - [Example Workflows](#example-workflows)
 - [Testing](#testing)
 - [Performance Benchmarking](#performance-benchmarking)
+- [Manual Testing & Observing Caching](#manual-testing--observing-caching)
+- [Current Limitations](#current-limitations)
+- [Roadmap / Future Plans](#roadmap--future-plans)
 
 ---
 
@@ -172,6 +180,19 @@ To run automated tests:
 ## Performance Benchmarking
 
 For testing high request loads, use [Apache JMeter](https://jmeter.apache.org/) or [k6](https://k6.io/) to simulate traffic and benchmark the system’s performance.
+
+## Manual Testing & Observing Caching
+
+You can manually observe the caching behavior by timing repeated requests for the same resource.
+
+1. Make a GET request for a product (e.g., `/products/1`).
+   - The first request will take longer, as it fetches from the database and stores the result in the cache.
+2. Make the same request again.
+   - The second (and subsequent) requests will be much faster, as the data is now served from Redis cache.
+
+**Example:**
+- First request: `GET /products/1` — Time: 4.51s (cache miss)
+- Second request: `GET /products/1` — Time: 111ms (cache hit)
 
 ## Current Limitations
 
