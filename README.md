@@ -173,4 +173,15 @@ To run automated tests:
 
 For testing high request loads, use [Apache JMeter](https://jmeter.apache.org/) or [k6](https://k6.io/) to simulate traffic and benchmark the system’s performance.
 
+## Current Limitations
+
+- The current version supports only a single-node Redis setup.
+- Distributed (multi-node) caching is not yet implemented.
+
+## Roadmap / Future Plans
+
+- Add support for Redis Cluster and Sentinel for multi-node, distributed caching.
+- Implement cluster-aware connection management and failover.
+- Update documentation and examples for distributed deployments.
+
 ---
